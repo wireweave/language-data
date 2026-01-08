@@ -102,8 +102,8 @@ type ComponentCategory =
 
 ## Used By
 
-- [@wireweave/playground](https://www.npmjs.com/package/@wireweave/playground) - Monaco Editor integration
-- [wireweave-vscode](https://marketplace.visualstudio.com/items?itemName=wireweave.wireweave-vscode) - VS Code Extension
+- **Wireweave Playground** - Monaco Editor integration for live preview
+- **Wireweave VS Code Extension** - VS Code language support and preview
 
 ## License
 
