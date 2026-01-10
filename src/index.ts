@@ -1,14 +1,16 @@
 /**
  * @wireweave/language-data
  *
- * Shared language definitions for Wireweave DSL editors
- * Used by VS Code Extension, Playground, and other editor integrations
+ * Editor-specific metadata for Wireweave DSL
+ * Provides descriptions, examples, and autocomplete hints for IDE integrations.
+ *
+ * For DSL spec and validation, use @wireweave/core directly.
  */
 
-// Types
-export type { ComponentDef, AttributeDef, ComponentCategory } from './types.js';
+// Editor-specific types
+export type { ComponentDef, AttributeDef } from './types.js';
 
-// Data
+// Editor-specific data (with descriptions, examples)
 export { ALL_COMPONENTS } from './components.js';
 export { ATTRIBUTES } from './attributes.js';
 export {
@@ -18,7 +20,7 @@ export {
   SPACING_SCALE,
 } from './keywords.js';
 
-// Utilities
+// Editor utilities
 export {
   getComponent,
   getAttribute,

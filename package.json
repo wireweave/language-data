@@ -23,6 +23,9 @@
     "clean": "rm -rf dist",
     "release": "release-it"
   },
+  "dependencies": {
+    "@wireweave/core": "workspace:*"
+  },
   "devDependencies": {
     "@release-it/conventional-changelog": "^10.0.4",
     "release-it": "^19.2.3",

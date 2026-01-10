@@ -46,7 +46,7 @@ export const ATTRIBUTES: AttributeDef[] = [
   { name: 'maxW', description: 'Maximum width.', values: 'number', example: 'maxW=600' },
   { name: 'minH', description: 'Minimum height.', values: 'number', example: 'minH=100' },
   { name: 'maxH', description: 'Maximum height.', values: 'number', example: 'maxH=400' },
-  { name: 'size', description: 'Size preset.', values: ['xs', 'sm', 'md', 'lg', 'xl'], example: 'size=lg' },
+  { name: 'size', description: 'Size preset.', values: ['xs', 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl'], example: 'size=lg' },
   { name: 'viewport', description: 'Viewport size (e.g., "1440x900").', values: 'string', example: 'viewport="1440x900"' },
   { name: 'device', description: 'Device preset.', values: ['iphone14', 'iphone14pro', 'desktop', 'tablet'], example: 'device="iphone14"' },
 
@@ -58,6 +58,7 @@ export const ATTRIBUTES: AttributeDef[] = [
   // Text
   { name: 'level', description: 'Heading level (1-6).', values: 'number', example: 'level=2' },
   { name: 'weight', description: 'Font weight.', values: ['normal', 'medium', 'semibold', 'bold'], example: 'weight=bold' },
+  { name: 'bold', description: 'Bold text (shorthand for weight=bold).', values: 'boolean', example: 'bold' },
   { name: 'muted', description: 'Muted style.', values: 'boolean', example: 'muted' },
 
   // Button variants
@@ -85,6 +86,19 @@ export const ATTRIBUTES: AttributeDef[] = [
   { name: 'min', description: 'Minimum value.', values: 'number', example: 'min=0' },
   { name: 'max', description: 'Maximum value.', values: 'number', example: 'max=100' },
   { name: 'step', description: 'Step increment.', values: 'number', example: 'step=1' },
+
+  // Scrolling
+  { name: 'scroll', description: 'Enable vertical scrolling for overflow content.', values: 'boolean', example: 'scroll' },
+
+  // Background
+  { name: 'bg', description: 'Background color variant.', values: ['muted', 'primary', 'secondary'], example: 'bg=muted' },
+
+  // Border radius
+  { name: 'rounded', description: 'Apply border radius.', values: 'boolean', example: 'rounded' },
+
+  // Position
+  { name: 'x', description: 'Horizontal position (px or with unit).', values: 'number', example: 'x=100' },
+  { name: 'y', description: 'Vertical position (px or with unit).', values: 'number', example: 'y=50' },
 
   // Other
   { name: 'title', description: 'Title text.', values: 'string', example: 'title="Title"' },
