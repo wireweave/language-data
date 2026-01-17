@@ -33,7 +33,7 @@
     "clean": "rm -rf dist",
     "release": "release-it"
   },
-    "devDependencies": {
+  "devDependencies": {
     "@release-it/conventional-changelog": "^10.0.4",
     "release-it": "^19.2.3",
     "tsup": "^8.3.5",
