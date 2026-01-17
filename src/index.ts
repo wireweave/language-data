@@ -1,18 +1,36 @@
 /**
  * @wireweave/language-data
  *
- * Editor-specific metadata for Wireweave DSL
- * Provides descriptions, examples, and autocomplete hints for IDE integrations.
+ * Language definitions and metadata for Wireweave DSL editor integrations.
+ * This package is independent of @wireweave/core.
  *
- * For DSL spec and validation, use @wireweave/core directly.
+ * Provides:
+ * - Component and attribute definitions
+ * - Editor utilities (autocomplete, validation hints)
+ * - Monaco language configuration (coming soon)
  */
 
-// Editor-specific types
-export type { ComponentDef, AttributeDef } from './types.js';
+// Types
+export type {
+  ComponentDef,
+  AttributeDef,
+  ComponentCategory,
+  AttributeValueType,
+} from './types.js';
 
-// Editor-specific data (with descriptions, examples)
-export { ALL_COMPONENTS } from './components.js';
-export { ATTRIBUTES } from './attributes.js';
+// Data
+export {
+  ALL_COMPONENTS,
+  COMPONENT_MAP,
+  NODE_TYPE_MAP,
+  VALID_COMPONENT_NAMES,
+} from './components.js';
+export {
+  ATTRIBUTES,
+  ATTRIBUTE_MAP,
+  COMMON_ATTRIBUTES,
+  VALID_ATTRIBUTE_NAMES,
+} from './attributes.js';
 export {
   CATEGORY_LABELS,
   VALUE_KEYWORDS,
@@ -20,9 +38,10 @@ export {
   SPACING_SCALE,
 } from './keywords.js';
 
-// Editor utilities
+// Utilities
 export {
   getComponent,
+  getComponentByNodeType,
   getAttribute,
   getValidChildren,
   isValidChild,
@@ -34,4 +53,5 @@ export {
   isAttribute,
   getComponentNames,
   getAttributeNames,
+  getCategories,
 } from './utils.js';

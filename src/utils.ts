@@ -3,21 +3,28 @@
  */
 
 import type { ComponentDef, AttributeDef } from './types.js';
-import { ALL_COMPONENTS } from './components.js';
-import { ATTRIBUTES } from './attributes.js';
+import { ALL_COMPONENTS, COMPONENT_MAP, NODE_TYPE_MAP } from './components.js';
+import { ATTRIBUTES, ATTRIBUTE_MAP } from './attributes.js';
 
 /**
  * Get component definition by name
  */
 export function getComponent(name: string): ComponentDef | undefined {
-  return ALL_COMPONENTS.find((c) => c.name === name.toLowerCase());
+  return COMPONENT_MAP.get(name.toLowerCase());
+}
+
+/**
+ * Get component definition by AST node type
+ */
+export function getComponentByNodeType(nodeType: string): ComponentDef | undefined {
+  return NODE_TYPE_MAP.get(nodeType);
 }
 
 /**
  * Get attribute definition by name
  */
 export function getAttribute(name: string): AttributeDef | undefined {
-  return ATTRIBUTES.find((a) => a.name === name);
+  return ATTRIBUTE_MAP.get(name);
 }
 
 /**
@@ -69,41 +76,41 @@ export function getComponentsByCategory(category: string): ComponentDef[] {
  * Get attribute type label for display
  */
 export function getAttributeTypeLabel(attr: AttributeDef): string {
-  if (attr.values === 'number') return 'number';
-  if (attr.values === 'string') return 'string';
-  if (attr.values === 'boolean') return 'boolean';
-  if (Array.isArray(attr.values)) {
+  if (attr.type === 'boolean') return 'boolean';
+  if (attr.type === 'number') return 'number';
+  if (attr.type === 'string' || attr.type === 'string[]') return 'string';
+  if (attr.type === 'enum' && attr.values) {
     const preview = attr.values.slice(0, 3).join(' | ');
     return attr.values.length > 3 ? `${preview}...` : preview;
   }
-  return '';
+  return attr.type;
 }
 
 /**
  * Format attribute values for display
  */
 export function formatAttributeValues(attr: AttributeDef): string {
-  if (attr.values === 'number') return 'Type: number';
-  if (attr.values === 'string') return 'Type: string';
-  if (attr.values === 'boolean') return 'Type: boolean (can be omitted)';
-  if (Array.isArray(attr.values)) {
+  if (attr.type === 'number') return 'Type: number';
+  if (attr.type === 'string') return 'Type: string';
+  if (attr.type === 'boolean') return 'Type: boolean (can be omitted)';
+  if (attr.type === 'enum' && attr.values) {
     return `Values: ${attr.values.join(' | ')}`;
   }
-  return '';
+  return `Type: ${attr.type}`;
 }
 
 /**
  * Check if a word is a known component
  */
 export function isComponent(word: string): boolean {
-  return ALL_COMPONENTS.some((c) => c.name === word.toLowerCase());
+  return COMPONENT_MAP.has(word.toLowerCase());
 }
 
 /**
  * Check if a word is a known attribute
  */
 export function isAttribute(word: string): boolean {
-  return ATTRIBUTES.some((a) => a.name === word);
+  return ATTRIBUTE_MAP.has(word);
 }
 
 /**
@@ -118,4 +125,11 @@ export function getComponentNames(): string[] {
  */
 export function getAttributeNames(): string[] {
   return ATTRIBUTES.map((a) => a.name);
+}
+
+/**
+ * Get all unique categories
+ */
+export function getCategories(): string[] {
+  return [...new Set(ALL_COMPONENTS.map((c) => c.category))];
 }

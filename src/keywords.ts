@@ -2,7 +2,7 @@
  * Keywords and labels for Wireweave DSL
  */
 
-import type { ComponentCategory } from '@wireweave/core';
+import type { ComponentCategory } from './types.js';
 
 // Category labels for display
 export const CATEGORY_LABELS: Record<ComponentCategory, string> = {

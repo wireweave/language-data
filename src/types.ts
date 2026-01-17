@@ -1,44 +1,71 @@
 /**
- * Type definitions for Wireweave language data (editor-friendly)
+ * Type definitions for Wireweave language data
  *
  * Editor-specific types for IDE integrations.
- * For core spec types, use @wireweave/core directly.
+ * This package is independent of @wireweave/core.
  */
 
 /**
- * Extended component definition for editors
- * Includes documentation and autocomplete hints
+ * Attribute value type
+ */
+export type AttributeValueType =
+  | 'boolean'
+  | 'number'
+  | 'string'
+  | 'string[]'
+  | 'enum';
+
+/**
+ * Component category
+ */
+export type ComponentCategory =
+  | 'layout'
+  | 'grid'
+  | 'container'
+  | 'text'
+  | 'input'
+  | 'display'
+  | 'data'
+  | 'feedback'
+  | 'overlay'
+  | 'navigation';
+
+/**
+ * Component definition for editors
  */
 export interface ComponentDef {
-  /** Component name (lowercase) */
+  /** Component name (lowercase, as used in DSL) */
   name: string;
-  /** Human-readable description for tooltips */
-  description: string;
-  /** Component category for grouping */
-  category: string;
+  /** AST node type (PascalCase) */
+  nodeType: string;
+  /** Component category */
+  category: ComponentCategory;
   /** Valid attributes for this component */
   attributes: string[];
   /** Whether this component can have children */
   hasChildren: boolean;
+  /** Human-readable description */
+  description: string;
+  /** Code example for documentation */
+  example: string;
   /** Valid child components (for autocomplete) */
   validChildren?: string[];
   /** Valid parent components (for validation hints) */
   validParents?: string[];
-  /** Code example for documentation */
-  example?: string;
 }
 
 /**
- * Extended attribute definition for editors
- * Includes documentation and autocomplete values
+ * Attribute definition for editors
  */
 export interface AttributeDef {
   /** Attribute name */
   name: string;
-  /** Human-readable description for tooltips */
+  /** Value type */
+  type: AttributeValueType;
+  /** Enum values (if type is 'enum') */
+  values?: string[];
+  /** Human-readable description */
   description: string;
-  /** Possible values (for autocomplete) */
-  values?: string[] | 'number' | 'string' | 'boolean';
   /** Code example for documentation */
-  example?: string;
+  example: string;
 }

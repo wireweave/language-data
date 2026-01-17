@@ -11,6 +11,16 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./monaco": {
+      "types": "./dist/monaco/index.d.ts",
+      "import": "./dist/monaco/index.js",
+      "require": "./dist/monaco/index.cjs"
+    },
+    "./codemirror": {
+      "types": "./dist/codemirror/index.d.ts",
+      "import": "./dist/codemirror/index.js",
+      "require": "./dist/codemirror/index.cjs"
     }
   },
   "files": [
@@ -23,10 +33,7 @@
     "clean": "rm -rf dist",
     "release": "release-it"
   },
-  "dependencies": {
-    "@wireweave/core": "1.1.0-beta.0"
-  },
-  "devDependencies": {
+    "devDependencies": {
     "@release-it/conventional-changelog": "^10.0.4",
     "release-it": "^19.2.3",
     "tsup": "^8.3.5",
