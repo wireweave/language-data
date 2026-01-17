@@ -13,22 +13,6 @@
 ### Bug Fixes
 
 * replace require with ESM imports in monaco/index.ts ([2f75307](https://github.com/wireweave/language-data/commit/2f75307b90caace870d71ac2670b6ad7e5728f81))
-## [1.0.2-beta.0](https://github.com/wireweave/language-data/compare/v1.0.2-beta.0...v1.2.0-beta.0) (2026-01-10)
-
-### Bug Fixes
-
-* use exact version for @wireweave/core beta ([e59a9f0](https://github.com/wireweave/language-data/commit/e59a9f000808e3ebe467e44347babf9b72406da0))
-* use npm version for @wireweave/core dependency ([2b16a9b](https://github.com/wireweave/language-data/commit/2b16a9b3db3111bbdf61fb939a2b89dc70a205b6))
-
-### Refactoring
-
-* use release-it preRelease for beta versioning ([b4ceb6a](https://github.com/wireweave/language-data/commit/b4ceb6af2ff4245ed24c0a624347b4214c818109))
-* use release-it preRelease for beta versioning ([#1](https://github.com/wireweave/language-data/issues/1)) ([1adb5b6](https://github.com/wireweave/language-data/commit/1adb5b64375c45ca16e684d14c2887150cc4e2ca))
-
-### Documentation
-
-* remove broken links from Used By section ([ab3b479](https://github.com/wireweave/language-data/commit/ab3b4795ed3fd568567f51bd2ea1deeb05b41fac))
-## [1.0.2](https://github.com/wireweave/language-data/compare/v1.0.2-beta.0...v1.2.0-beta.0) (2026-01-08)
 
 ## [1.1.0](https://github.com/wireweave/language-data/compare/v1.0.2...v1.1.0) (2026-01-17)
 
