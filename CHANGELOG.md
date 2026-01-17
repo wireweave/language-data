@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.0-beta.0](https://github.com/wireweave/language-data/compare/v1.0.2-beta.0...v1.1.0-beta.0) (2026-01-17)
+
+### Features
+
+* add Monaco and CodeMirror editor integrations ([3750d79](https://github.com/wireweave/language-data/commit/3750d79a695db725f9c1cdeb49827de20e298587))
+
+### Bug Fixes
+
+* replace require with ESM imports in monaco/index.ts ([2f75307](https://github.com/wireweave/language-data/commit/2f75307b90caace870d71ac2670b6ad7e5728f81))
+
 ## [1.0.2-beta.0](https://github.com/wireweave/language-data/compare/v1.0.1...v1.0.2-beta.0) (2026-01-10)
 
 ### Bug Fixes
