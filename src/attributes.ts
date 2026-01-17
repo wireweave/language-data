@@ -171,6 +171,14 @@ export const ATTRIBUTES: AttributeDef[] = [
   // ============================================
   { name: 'viewport', type: 'string', description: 'Viewport size (e.g., "1440x900")', example: 'viewport="1440x900"' },
   { name: 'device', type: 'string', description: 'Device preset', example: 'device="iphone14"' },
+
+  // ============================================
+  // Interactive Attributes
+  // ============================================
+  { name: 'navigate', type: 'string', description: 'Navigation target URL or page', example: 'navigate="/dashboard"' },
+  { name: 'opens', type: 'string', description: 'Opens a modal, drawer, or popup', example: 'opens="settings-modal"' },
+  { name: 'toggles', type: 'string', description: 'Toggles visibility of an element', example: 'toggles="menu"' },
+  { name: 'action', type: 'string', description: 'Action identifier for event handling', example: 'action="submit-form"' },
 ];
 
 /**
