@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.0-beta.0](https://github.com/wireweave/language-data/compare/v1.2.1-beta.0...v1.3.0-beta.0) (2026-01-17)
+
+### Features
+
+* add interactive attributes (navigate, opens, toggles, action) ([c924b06](https://github.com/wireweave/language-data/commit/c924b06dadaec32347a32f6c86b7dbbd517c9e28))
+
 ## [1.2.1-beta.0](https://github.com/wireweave/language-data/compare/v1.2.0-beta.0...v1.2.1-beta.0) (2026-01-17)
 
 ## [1.2.0](https://github.com/wireweave/language-data/compare/v1.1.0...v1.2.0) (2026-01-17)
