@@ -55,26 +55,34 @@ export {
   createDiagnosticsSetup,
 } from './diagnostics.js';
 
+// Import for registerWireframeLanguage
+import {
+  LANGUAGE_ID as _LANGUAGE_ID,
+  getMonarchTokensProvider as _getMonarchTokensProvider,
+  getLanguageConfiguration as _getLanguageConfiguration,
+} from './language.js';
+import {
+  createHoverProvider as _createHoverProvider,
+  createCompletionProvider as _createCompletionProvider,
+} from './providers.js';
+
 /**
  * Register wireframe language with Monaco
  * Convenience function that registers everything at once
  */
 export function registerWireframeLanguage(monaco: any): void {
-  const { LANGUAGE_ID, getMonarchTokensProvider, getLanguageConfiguration } = require('./language.js');
-  const { createHoverProvider, createCompletionProvider } = require('./providers.js');
-
   // Register language
   monaco.languages.register({
-    id: LANGUAGE_ID,
+    id: _LANGUAGE_ID,
     aliases: ['Wireframe', 'wireweave', 'wf'],
     extensions: ['.wf', '.wireframe'],
   });
 
   // Set tokenizer and configuration
-  monaco.languages.setMonarchTokensProvider(LANGUAGE_ID, getMonarchTokensProvider());
-  monaco.languages.setLanguageConfiguration(LANGUAGE_ID, getLanguageConfiguration());
+  monaco.languages.setMonarchTokensProvider(_LANGUAGE_ID, _getMonarchTokensProvider());
+  monaco.languages.setLanguageConfiguration(_LANGUAGE_ID, _getLanguageConfiguration());
 
   // Register providers
-  monaco.languages.registerHoverProvider(LANGUAGE_ID, createHoverProvider(monaco));
-  monaco.languages.registerCompletionItemProvider(LANGUAGE_ID, createCompletionProvider(monaco));
+  monaco.languages.registerHoverProvider(_LANGUAGE_ID, _createHoverProvider(monaco));
+  monaco.languages.registerCompletionItemProvider(_LANGUAGE_ID, _createCompletionProvider(monaco));
 }
