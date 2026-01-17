@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.0](https://github.com/wireweave/language-data/compare/v1.0.2...v1.1.0) (2026-01-17)
+
+### Refactoring
+
+* use release-it preRelease for beta versioning ([#1](https://github.com/wireweave/language-data/issues/1)) ([1adb5b6](https://github.com/wireweave/language-data/commit/1adb5b64375c45ca16e684d14c2887150cc4e2ca))
+
 ## [1.1.0-beta.0](https://github.com/wireweave/language-data/compare/v1.0.2-beta.0...v1.1.0-beta.0) (2026-01-17)
 
 ### Features
