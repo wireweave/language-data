@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.0](https://github.com/wireweave/language-data/compare/v1.2.0...v1.3.0) (2026-01-17)
+
+### Features
+
+* add interactive attributes support ([#4](https://github.com/wireweave/language-data/issues/4)) ([7577574](https://github.com/wireweave/language-data/commit/7577574939316a77f4146650f71908e70b287deb))
+
 ## [1.3.0-beta.0](https://github.com/wireweave/language-data/compare/v1.2.1-beta.0...v1.3.0-beta.0) (2026-01-17)
 
 ### Features
