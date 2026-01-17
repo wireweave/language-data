@@ -1,16 +1,36 @@
 /**
  * @wireweave/language-data
  *
- * Shared language definitions for Wireweave DSL editors
- * Used by VS Code Extension, Playground, and other editor integrations
+ * Language definitions and metadata for Wireweave DSL editor integrations.
+ * This package is independent of @wireweave/core.
+ *
+ * Provides:
+ * - Component and attribute definitions
+ * - Editor utilities (autocomplete, validation hints)
+ * - Monaco language configuration (coming soon)
  */
 
 // Types
-export type { ComponentDef, AttributeDef, ComponentCategory } from './types.js';
+export type {
+  ComponentDef,
+  AttributeDef,
+  ComponentCategory,
+  AttributeValueType,
+} from './types.js';
 
 // Data
-export { ALL_COMPONENTS } from './components.js';
-export { ATTRIBUTES } from './attributes.js';
+export {
+  ALL_COMPONENTS,
+  COMPONENT_MAP,
+  NODE_TYPE_MAP,
+  VALID_COMPONENT_NAMES,
+} from './components.js';
+export {
+  ATTRIBUTES,
+  ATTRIBUTE_MAP,
+  COMMON_ATTRIBUTES,
+  VALID_ATTRIBUTE_NAMES,
+} from './attributes.js';
 export {
   CATEGORY_LABELS,
   VALUE_KEYWORDS,
@@ -21,6 +41,7 @@ export {
 // Utilities
 export {
   getComponent,
+  getComponentByNodeType,
   getAttribute,
   getValidChildren,
   isValidChild,
@@ -32,4 +53,5 @@ export {
   isAttribute,
   getComponentNames,
   getAttributeNames,
+  getCategories,
 } from './utils.js';

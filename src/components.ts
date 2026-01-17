@@ -1,366 +1,454 @@
 /**
  * Component definitions for Wireweave DSL
- * Based on @wireweave/core AST types
+ *
+ * Complete component definitions for editor integrations.
+ * This is the authoritative source for editor-related component data.
  */
 
 import type { ComponentDef } from './types.js';
+import { COMMON_ATTRIBUTES } from './attributes.js';
 
+/**
+ * All components in Wireweave DSL
+ */
 export const ALL_COMPONENTS: ComponentDef[] = [
-  // Layout
+  // ============================================
+  // Layout Components
+  // ============================================
   {
     name: 'page',
-    description: 'Page root container. Starting point for the entire layout.',
+    nodeType: 'Page',
     category: 'layout',
-    attributes: ['title', 'width', 'height', 'viewport', 'device', 'centered', 'p', 'px', 'py', 'pt', 'pr', 'pb', 'pl', 'm', 'gap'],
+    attributes: [...COMMON_ATTRIBUTES, 'title', 'width', 'height', 'viewport', 'device', 'centered'],
     hasChildren: true,
+    description: 'Root container for a wireframe page',
+    example: 'page "Dashboard" centered { ... }',
     validChildren: ['header', 'main', 'footer', 'sidebar', 'section', 'nav', 'row', 'col', 'card'],
     validParents: [],
-    example: 'page "Dashboard" centered { ... }',
   },
   {
     name: 'header',
-    description: 'Page header area. Place navigation, logo, etc.',
+    nodeType: 'Header',
     category: 'layout',
-    attributes: ['p', 'px', 'py', 'border', 'gap', 'justify', 'align'],
+    attributes: [...COMMON_ATTRIBUTES, 'border'],
     hasChildren: true,
+    description: 'Page header section',
+    example: 'header h=56 border { ... }',
     validParents: ['page'],
-    example: 'header p=4 border { ... }',
   },
   {
     name: 'main',
-    description: 'Main content area. Place primary content here.',
+    nodeType: 'Main',
     category: 'layout',
-    attributes: ['p', 'px', 'py', 'gap'],
+    attributes: [...COMMON_ATTRIBUTES, 'scroll'],
     hasChildren: true,
+    description: 'Main content section',
+    example: 'main p=6 scroll { ... }',
     validParents: ['page'],
-    example: 'main p=6 { ... }',
   },
   {
     name: 'footer',
-    description: 'Page footer area. Place copyright, links, etc.',
+    nodeType: 'Footer',
     category: 'layout',
-    attributes: ['p', 'px', 'py', 'border', 'gap'],
+    attributes: [...COMMON_ATTRIBUTES, 'border'],
     hasChildren: true,
+    description: 'Page footer section',
+    example: 'footer h=48 border { ... }',
     validParents: ['page'],
-    example: 'footer p=4 border { ... }',
   },
   {
     name: 'sidebar',
-    description: 'Sidebar area. Place auxiliary navigation or information.',
+    nodeType: 'Sidebar',
     category: 'layout',
-    attributes: ['position', 'w', 'p', 'px', 'py', 'gap'],
+    attributes: [...COMMON_ATTRIBUTES, 'position', 'border', 'bg'],
     hasChildren: true,
+    description: 'Side navigation or content area',
+    example: 'sidebar w=240 border { ... }',
     validParents: ['page'],
-    example: 'sidebar w=240 { ... }',
   },
   {
     name: 'section',
-    description: 'Section area. Logically group content.',
+    nodeType: 'Section',
     category: 'layout',
-    attributes: ['title', 'expanded', 'p', 'px', 'py', 'gap'],
+    attributes: [...COMMON_ATTRIBUTES, 'title', 'expanded'],
     hasChildren: true,
+    description: 'Grouped content section',
     example: 'section "Settings" expanded { ... }',
   },
 
-  // Grid
+  // ============================================
+  // Grid Components
+  // ============================================
   {
     name: 'row',
-    description: 'Horizontal flex container. Arrange children horizontally.',
+    nodeType: 'Row',
     category: 'grid',
-    attributes: ['gap', 'justify', 'align', 'wrap', 'direction', 'flex', 'p', 'm', 'mt', 'mb'],
+    attributes: [...COMMON_ATTRIBUTES, 'border', 'bg'],
     hasChildren: true,
+    description: 'Horizontal flex container',
     example: 'row flex gap=4 justify=between { ... }',
   },
   {
     name: 'col',
-    description: 'Vertical flex container or grid column.',
+    nodeType: 'Col',
     category: 'grid',
-    attributes: ['span', 'sm', 'md', 'lg', 'xl', 'order', 'gap', 'justify', 'align', 'p', 'm', 'w'],
+    attributes: [...COMMON_ATTRIBUTES, 'sm', 'md', 'lg', 'xl', 'order', 'border', 'bg', 'scroll'],
     hasChildren: true,
+    description: 'Vertical flex container or grid column',
     example: 'col span=6 md=4 { ... }',
   },
 
-  // Container
+  // ============================================
+  // Container Components
+  // ============================================
   {
     name: 'card',
-    description: 'Card component. Group and display content.',
+    nodeType: 'Card',
     category: 'container',
-    attributes: ['title', 'p', 'shadow', 'border', 'gap'],
+    attributes: [...COMMON_ATTRIBUTES, 'title', 'shadow', 'border', 'rounded'],
     hasChildren: true,
+    description: 'Card container with optional title',
     example: 'card "Settings" p=4 shadow=md { ... }',
   },
   {
     name: 'modal',
-    description: 'Modal dialog. Display content on an overlay.',
+    nodeType: 'Modal',
     category: 'container',
-    attributes: ['title', 'w', 'h', 'p'],
+    attributes: [...COMMON_ATTRIBUTES, 'title'],
     hasChildren: true,
+    description: 'Modal dialog overlay',
     example: 'modal "Confirm" w=400 { ... }',
   },
   {
     name: 'drawer',
-    description: 'Drawer panel. Slides in from the edge of the screen.',
+    nodeType: 'Drawer',
     category: 'container',
-    attributes: ['title', 'position', 'p'],
+    attributes: [...COMMON_ATTRIBUTES, 'title', 'position'],
     hasChildren: true,
+    description: 'Slide-in drawer panel',
     example: 'drawer "Menu" position=left { ... }',
   },
   {
     name: 'accordion',
-    description: 'Accordion. Collapsible content panel.',
+    nodeType: 'Accordion',
     category: 'container',
-    attributes: ['title', 'p'],
+    attributes: [...COMMON_ATTRIBUTES, 'title'],
     hasChildren: true,
+    description: 'Collapsible sections container',
     example: 'accordion { section "FAQ 1" { ... } }',
   },
 
-  // Text
+  // ============================================
+  // Text Components
+  // ============================================
   {
     name: 'text',
-    description: 'Text element. Display plain text.',
+    nodeType: 'Text',
     category: 'text',
-    attributes: ['size', 'weight', 'align', 'muted', 'm', 'mt', 'mb'],
+    attributes: [...COMMON_ATTRIBUTES, 'size', 'weight', 'muted', 'bold'],
     hasChildren: false,
+    description: 'Text content',
     example: 'text "Hello World" size=lg weight=bold',
   },
   {
     name: 'title',
-    description: 'Title element. Display h1-h6 headings.',
+    nodeType: 'Title',
     category: 'text',
-    attributes: ['level', 'size', 'align', 'm', 'mt', 'mb'],
+    attributes: [...COMMON_ATTRIBUTES, 'level', 'size'],
     hasChildren: false,
+    description: 'Heading element (h1-h6)',
     example: 'title "Welcome" level=2',
   },
   {
     name: 'link',
-    description: 'Link element. Display clickable hyperlink.',
+    nodeType: 'Link',
     category: 'text',
-    attributes: ['href', 'external'],
+    attributes: [...COMMON_ATTRIBUTES, 'href', 'external'],
     hasChildren: false,
+    description: 'Hyperlink text',
     example: 'link "Learn more" href="/docs" external',
   },
 
-  // Input
+  // ============================================
+  // Input Components
+  // ============================================
   {
     name: 'input',
-    description: 'Input field. Accept text, email, password, etc.',
+    nodeType: 'Input',
     category: 'input',
-    attributes: ['label', 'inputType', 'placeholder', 'value', 'disabled', 'required', 'readonly', 'icon', 'm', 'mb'],
+    attributes: [...COMMON_ATTRIBUTES, 'label', 'inputType', 'placeholder', 'value', 'disabled', 'required', 'readonly', 'icon', 'size', 'rounded'],
     hasChildren: false,
+    description: 'Text input field',
     example: 'input "Email" inputType=email placeholder="user@example.com" required',
   },
   {
     name: 'textarea',
-    description: 'Multi-line input field. Accept long text.',
+    nodeType: 'Textarea',
     category: 'input',
-    attributes: ['label', 'placeholder', 'value', 'rows', 'disabled', 'required', 'm', 'mb'],
+    attributes: [...COMMON_ATTRIBUTES, 'label', 'placeholder', 'value', 'rows', 'disabled', 'required'],
     hasChildren: false,
+    description: 'Multi-line text input',
     example: 'textarea "Description" rows=4 placeholder="Enter description..."',
   },
   {
     name: 'select',
-    description: 'Dropdown select. Choose one from multiple options.',
+    nodeType: 'Select',
     category: 'input',
-    attributes: ['label', 'placeholder', 'value', 'disabled', 'required', 'm', 'mb'],
+    attributes: [...COMMON_ATTRIBUTES, 'label', 'placeholder', 'value', 'disabled', 'required'],
     hasChildren: false,
+    description: 'Dropdown select',
     example: 'select "Country" ["USA", "Canada", "UK"] placeholder="Select..."',
   },
   {
     name: 'checkbox',
-    description: 'Checkbox. Select true/false value.',
+    nodeType: 'Checkbox',
     category: 'input',
-    attributes: ['label', 'checked', 'disabled', 'm', 'mb'],
+    attributes: [...COMMON_ATTRIBUTES, 'label', 'checked', 'disabled'],
     hasChildren: false,
+    description: 'Checkbox input',
     example: 'checkbox "I agree to terms" checked',
   },
   {
     name: 'radio',
-    description: 'Radio button. Select one within a group.',
+    nodeType: 'Radio',
     category: 'input',
-    attributes: ['label', 'name', 'checked', 'disabled', 'm', 'mb'],
+    attributes: [...COMMON_ATTRIBUTES, 'label', 'name', 'checked', 'disabled'],
     hasChildren: false,
+    description: 'Radio button input',
     example: 'radio "Option A" name="choice" checked',
   },
   {
     name: 'switch',
-    description: 'Toggle switch. Switch on/off state.',
+    nodeType: 'Switch',
     category: 'input',
-    attributes: ['label', 'checked', 'disabled', 'm', 'mb'],
+    attributes: [...COMMON_ATTRIBUTES, 'label', 'checked', 'disabled'],
     hasChildren: false,
+    description: 'Toggle switch',
     example: 'switch "Dark mode" checked',
   },
   {
     name: 'slider',
-    description: 'Slider. Select a value within a range.',
+    nodeType: 'Slider',
     category: 'input',
-    attributes: ['label', 'min', 'max', 'value', 'step', 'disabled', 'm', 'mb'],
+    attributes: [...COMMON_ATTRIBUTES, 'label', 'min', 'max', 'value', 'step', 'disabled'],
     hasChildren: false,
+    description: 'Range slider',
     example: 'slider "Volume" min=0 max=100 value=50',
   },
-
-  // Button
   {
     name: 'button',
-    description: 'Button element. Display clickable button.',
+    nodeType: 'Button',
     category: 'input',
-    attributes: ['primary', 'secondary', 'outline', 'ghost', 'danger', 'size', 'icon', 'disabled', 'loading', 'w'],
+    attributes: [...COMMON_ATTRIBUTES, 'primary', 'secondary', 'outline', 'ghost', 'danger', 'size', 'icon', 'disabled', 'loading'],
     hasChildren: false,
+    description: 'Clickable button',
     example: 'button "Submit" primary icon=send',
   },
 
-  // Display
+  // ============================================
+  // Display Components
+  // ============================================
   {
     name: 'image',
-    description: 'Image element. Display an image.',
+    nodeType: 'Image',
     category: 'display',
-    attributes: ['src', 'alt', 'w', 'h'],
+    attributes: [...COMMON_ATTRIBUTES, 'src', 'alt'],
     hasChildren: false,
+    description: 'Image placeholder',
     example: 'image w=200 h=150',
   },
   {
     name: 'placeholder',
-    description: 'Placeholder. Image or content placeholder.',
+    nodeType: 'Placeholder',
     category: 'display',
-    attributes: ['label', 'w', 'h'],
-    hasChildren: false,
-    example: 'placeholder "Banner Image" w=full h=200',
+    attributes: [...COMMON_ATTRIBUTES, 'label'],
+    hasChildren: true,
+    description: 'Generic placeholder',
+    example: 'placeholder "Banner Image" w=full h=200 { ... }',
   },
   {
     name: 'avatar',
-    description: 'Avatar element. Display user profile image.',
+    nodeType: 'Avatar',
     category: 'display',
-    attributes: ['name', 'src', 'size'],
+    attributes: [...COMMON_ATTRIBUTES, 'name', 'src', 'size'],
     hasChildren: false,
+    description: 'User avatar',
     example: 'avatar "John Doe" size=lg',
   },
   {
     name: 'badge',
-    description: 'Badge element. Display status or count as a small label.',
+    nodeType: 'Badge',
     category: 'display',
-    attributes: ['variant', 'pill', 'icon', 'size'],
+    attributes: [...COMMON_ATTRIBUTES, 'variant', 'pill', 'icon', 'size'],
     hasChildren: false,
+    description: 'Status badge',
     example: 'badge "New" variant=success pill',
   },
   {
     name: 'icon',
-    description: 'Icon element. Display a Lucide icon.',
+    nodeType: 'Icon',
     category: 'display',
-    attributes: ['name', 'size', 'muted'],
+    attributes: [...COMMON_ATTRIBUTES, 'size', 'muted'],
     hasChildren: false,
+    description: 'Lucide icon',
     example: 'icon "settings" size=lg',
   },
 
-  // Data
+  // ============================================
+  // Data Components
+  // ============================================
   {
     name: 'table',
-    description: 'Table component. Display data in tabular format.',
+    nodeType: 'Table',
     category: 'data',
-    attributes: ['striped', 'bordered', 'hover'],
+    attributes: [...COMMON_ATTRIBUTES, 'striped', 'bordered', 'hover'],
     hasChildren: false,
+    description: 'Data table',
     example: 'table striped bordered { columns ["Name", "Email"] row ["John", "john@example.com"] }',
   },
   {
     name: 'list',
-    description: 'List component. Display items as a list.',
+    nodeType: 'List',
     category: 'data',
-    attributes: ['ordered', 'none', 'gap'],
+    attributes: [...COMMON_ATTRIBUTES, 'ordered', 'none'],
     hasChildren: false,
+    description: 'List of items',
     example: 'list ordered ["First", "Second", "Third"]',
   },
 
-  // Feedback
+  // ============================================
+  // Feedback Components
+  // ============================================
   {
     name: 'alert',
-    description: 'Alert element. Display a message to the user.',
+    nodeType: 'Alert',
     category: 'feedback',
-    attributes: ['variant', 'dismissible', 'icon'],
+    attributes: [...COMMON_ATTRIBUTES, 'variant', 'dismissible', 'icon'],
     hasChildren: false,
+    description: 'Alert message',
     example: 'alert "Changes saved!" variant=success',
   },
   {
     name: 'toast',
-    description: 'Toast notification. Display a temporary message.',
+    nodeType: 'Toast',
     category: 'feedback',
-    attributes: ['position', 'variant'],
+    attributes: [...COMMON_ATTRIBUTES, 'position', 'variant'],
     hasChildren: false,
+    description: 'Toast notification',
     example: 'toast "Item deleted" position=bottom-right variant=danger',
   },
   {
     name: 'progress',
-    description: 'Progress bar. Display progress status.',
+    nodeType: 'Progress',
     category: 'feedback',
-    attributes: ['value', 'max', 'label', 'indeterminate'],
+    attributes: [...COMMON_ATTRIBUTES, 'value', 'max', 'label', 'indeterminate'],
     hasChildren: false,
+    description: 'Progress bar',
     example: 'progress value=75 label="Uploading..."',
   },
   {
     name: 'spinner',
-    description: 'Loading spinner. Display loading status.',
+    nodeType: 'Spinner',
     category: 'feedback',
-    attributes: ['label', 'size'],
+    attributes: [...COMMON_ATTRIBUTES, 'label', 'size'],
     hasChildren: false,
+    description: 'Loading spinner',
     example: 'spinner size=lg',
   },
 
-  // Overlay
+  // ============================================
+  // Overlay Components
+  // ============================================
   {
     name: 'tooltip',
-    description: 'Tooltip element. Show additional info on hover.',
+    nodeType: 'Tooltip',
     category: 'overlay',
-    attributes: ['position'],
-    hasChildren: true,
+    attributes: [...COMMON_ATTRIBUTES, 'position'],
+    hasChildren: false,
+    description: 'Tooltip on hover',
     example: 'tooltip "More info" position=top { icon "help-circle" }',
   },
   {
     name: 'popover',
-    description: 'Popover. Show additional content on click.',
+    nodeType: 'Popover',
     category: 'overlay',
-    attributes: ['title'],
+    attributes: [...COMMON_ATTRIBUTES, 'title'],
     hasChildren: true,
+    description: 'Popover panel',
     example: 'popover "Details" { ... }',
   },
   {
     name: 'dropdown',
-    description: 'Dropdown menu. Expand menu on click.',
+    nodeType: 'Dropdown',
     category: 'overlay',
-    attributes: [],
+    attributes: [...COMMON_ATTRIBUTES],
     hasChildren: false,
+    description: 'Dropdown menu',
     example: 'dropdown { item "Edit" icon=edit item "Delete" icon=trash danger }',
   },
 
-  // Navigation
+  // ============================================
+  // Navigation Components
+  // ============================================
   {
     name: 'nav',
-    description: 'Navigation area. Place menu items.',
+    nodeType: 'Nav',
     category: 'navigation',
-    attributes: ['vertical', 'gap'],
+    attributes: [...COMMON_ATTRIBUTES, 'vertical'],
     hasChildren: false,
+    description: 'Navigation menu',
     example: 'nav [{ label="Home" icon=home active }, { label="Settings" icon=settings }] vertical',
   },
   {
     name: 'tabs',
-    description: 'Tabs component. Switch between multiple panels.',
+    nodeType: 'Tabs',
     category: 'navigation',
-    attributes: ['active'],
+    attributes: [...COMMON_ATTRIBUTES, 'active'],
     hasChildren: true,
+    description: 'Tab navigation',
     example: 'tabs { tab "General" active { ... } tab "Advanced" { ... } }',
   },
   {
     name: 'breadcrumb',
-    description: 'Breadcrumb. Display current location as a path.',
+    nodeType: 'Breadcrumb',
     category: 'navigation',
-    attributes: [],
+    attributes: [...COMMON_ATTRIBUTES],
     hasChildren: false,
+    description: 'Breadcrumb navigation',
     example: 'breadcrumb [{ label="Home" href="/" }, { label="Products" }, { label="Details" }]',
   },
 
-  // Divider
+  // ============================================
+  // Divider Component
+  // ============================================
   {
     name: 'divider',
-    description: 'Divider element. Visually separate content.',
-    category: 'display',
-    attributes: ['m', 'my', 'mx'],
+    nodeType: 'Divider',
+    category: 'layout',
+    attributes: [...COMMON_ATTRIBUTES, 'vertical'],
     hasChildren: false,
+    description: 'Horizontal separator',
     example: 'divider my=4',
   },
 ];
+
+/**
+ * Map of component name to definition for quick lookup
+ */
+export const COMPONENT_MAP: Map<string, ComponentDef> = new Map(
+  ALL_COMPONENTS.map((comp) => [comp.name, comp])
+);
+
+/**
+ * Map of AST node type to definition for quick lookup
+ */
+export const NODE_TYPE_MAP: Map<string, ComponentDef> = new Map(
+  ALL_COMPONENTS.map((comp) => [comp.nodeType, comp])
+);
+
+/**
+ * Set of all valid component names
+ */
+export const VALID_COMPONENT_NAMES: ReadonlySet<string> = new Set(
+  ALL_COMPONENTS.map((comp) => comp.name)
+);

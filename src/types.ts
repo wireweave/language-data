@@ -1,11 +1,27 @@
 /**
  * Type definitions for Wireweave language data
+ *
+ * Editor-specific types for IDE integrations.
+ * This package is independent of @wireweave/core.
  */
 
+/**
+ * Attribute value type
+ */
+export type AttributeValueType =
+  | 'boolean'
+  | 'number'
+  | 'string'
+  | 'string[]'
+  | 'enum';
+
+/**
+ * Component category
+ */
 export type ComponentCategory =
   | 'layout'
-  | 'container'
   | 'grid'
+  | 'container'
   | 'text'
   | 'input'
   | 'display'
@@ -14,20 +30,42 @@ export type ComponentCategory =
   | 'overlay'
   | 'navigation';
 
+/**
+ * Component definition for editors
+ */
 export interface ComponentDef {
+  /** Component name (lowercase, as used in DSL) */
   name: string;
-  description: string;
+  /** AST node type (PascalCase) */
+  nodeType: string;
+  /** Component category */
   category: ComponentCategory;
+  /** Valid attributes for this component */
   attributes: string[];
+  /** Whether this component can have children */
   hasChildren: boolean;
-  validChildren?: string[]; // Valid child components (undefined = all, empty array = none)
-  validParents?: string[]; // Valid parent components (undefined = any)
-  example?: string;
+  /** Human-readable description */
+  description: string;
+  /** Code example for documentation */
+  example: string;
+  /** Valid child components (for autocomplete) */
+  validChildren?: string[];
+  /** Valid parent components (for validation hints) */
+  validParents?: string[];
 }
 
+/**
+ * Attribute definition for editors
+ */
 export interface AttributeDef {
+  /** Attribute name */
   name: string;
+  /** Value type */
+  type: AttributeValueType;
+  /** Enum values (if type is 'enum') */
+  values?: string[];
+  /** Human-readable description */
   description: string;
-  values?: string[] | 'number' | 'string' | 'boolean';
-  example?: string;
+  /** Code example for documentation */
+  example: string;
 }
