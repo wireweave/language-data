@@ -1,5 +1,7 @@
 # Changelog
 
+## [1.4.2](https://github.com/wireweave/language-data/compare/v1.4.0...v1.4.2) (2026-01-17)
+
 ## [1.4.2-beta.0](https://github.com/wireweave/language-data/compare/v1.4.0...v1.4.2-beta.0) (2026-01-17)
 
 ## [1.4.0](https://github.com/wireweave/language-data/compare/v1.3.0-beta.0...v1.4.0) (2026-01-17)
