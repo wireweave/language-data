@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.6-beta.0](https://github.com/wireweave/language-data/compare/v1.4.5...v1.4.6-beta.0) (2026-01-24)
+
+### Documentation
+
+* **readme:** update logo URL to docs site ([1d43308](https://github.com/wireweave/language-data/commit/1d433088f31e3c0c18b1f7e01e4c0040944ca92a))
+
 ## [1.4.5](https://github.com/wireweave/language-data/compare/v1.4.5-beta.0...v1.4.5) (2026-01-17)
 
 ## [1.4.5-beta.0](https://github.com/wireweave/language-data/compare/v1.4.4...v1.4.5-beta.0) (2026-01-17)
