@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/wireweave/language-data/main/logo.svg" width="128" height="128" alt="Wireweave Language Data">
+  <img src="https://docs.wireweave.org/assets/wireweave-language-data.svg" width="128" height="128" alt="Wireweave Language Data">
 </p>
 
 <h1 align="center">@wireweave/language-data</h1>
