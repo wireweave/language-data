@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.7-beta.0](https://github.com/wireweave/language-data/compare/v1.4.6...v1.4.7-beta.0) (2026-02-18)
+
+### Documentation
+
+* fix dashboard URL reference ([95b3d89](https://github.com/wireweave/language-data/commit/95b3d896984976bc3f567562b568cf15404f343d))
+
 ## [1.4.6](https://github.com/wireweave/language-data/compare/v1.4.6-beta.0...v1.4.6) (2026-01-24)
 
 ## [1.4.6-beta.0](https://github.com/wireweave/language-data/compare/v1.4.5...v1.4.6-beta.0) (2026-01-24)
