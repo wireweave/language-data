@@ -16,6 +16,7 @@ export const CATEGORY_LABELS: Record<ComponentCategory, string> = {
   feedback: 'Feedback',
   overlay: 'Overlay',
   navigation: 'Navigation',
+  annotation: 'Annotation',
 };
 
 // Value keywords used in the language
@@ -68,6 +69,16 @@ export const VALUE_KEYWORDS = [
   'bottom-left',
   'bottom-center',
   'bottom-right',
+  'center-left',
+  'center-right',
+
+  // Marker colors
+  'blue',
+  'red',
+  'green',
+  'yellow',
+  'purple',
+  'orange',
 
   // Sizing
   'full',

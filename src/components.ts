@@ -97,6 +97,24 @@ export const ALL_COMPONENTS: ComponentDef[] = [
     description: 'Vertical flex container or grid column',
     example: 'col span=6 md=4 { ... }',
   },
+  {
+    name: 'stack',
+    nodeType: 'Stack',
+    category: 'grid',
+    attributes: [...COMMON_ATTRIBUTES, 'border', 'bg'],
+    hasChildren: true,
+    description: 'Vertical stack that only takes content height (unlike col which fills)',
+    example: 'stack gap=4 align=center { ... }',
+  },
+  {
+    name: 'relative',
+    nodeType: 'Relative',
+    category: 'grid',
+    attributes: [...COMMON_ATTRIBUTES],
+    hasChildren: true,
+    description: 'Container for overlaying elements with absolute positioning',
+    example: 'relative { button "Submit" marker 1 anchor=top-right }',
+  },
 
   // ============================================
   // Container Components
@@ -429,6 +447,39 @@ export const ALL_COMPONENTS: ComponentDef[] = [
     hasChildren: false,
     description: 'Horizontal separator',
     example: 'divider my=4',
+  },
+
+  // ============================================
+  // Annotation Components
+  // ============================================
+  {
+    name: 'marker',
+    nodeType: 'Marker',
+    category: 'annotation',
+    attributes: [...COMMON_ATTRIBUTES, 'color', 'anchor'],
+    hasChildren: false,
+    description: 'Number marker for referencing in annotations',
+    example: 'marker 1 anchor=top-right color=blue',
+  },
+  {
+    name: 'annotations',
+    nodeType: 'Annotations',
+    category: 'annotation',
+    attributes: [...COMMON_ATTRIBUTES, 'title'],
+    hasChildren: true,
+    description: 'Documentation panel for screen specifications',
+    example: 'annotations title="화면 설명" { item 1 "제목" { text "설명" } }',
+    validChildren: ['item'],
+  },
+  {
+    name: 'item',
+    nodeType: 'AnnotationItem',
+    category: 'annotation',
+    attributes: [],
+    hasChildren: true,
+    description: 'Individual annotation entry with marker number and title',
+    example: 'item 1 "로그인 버튼" { text "OAuth 연동 예정" }',
+    validParents: ['annotations'],
   },
 ];
 
