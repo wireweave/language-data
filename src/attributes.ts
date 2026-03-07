@@ -179,6 +179,12 @@ export const ATTRIBUTES: AttributeDef[] = [
   { name: 'opens', type: 'string', description: 'Opens a modal, drawer, or popup', example: 'opens="settings-modal"' },
   { name: 'toggles', type: 'string', description: 'Toggles visibility of an element', example: 'toggles="menu"' },
   { name: 'action', type: 'string', description: 'Action identifier for event handling', example: 'action="submit-form"' },
+
+  // ============================================
+  // Annotation Attributes
+  // ============================================
+  { name: 'anchor', type: 'enum', values: ['top-left', 'top-center', 'top-right', 'center-left', 'center', 'center-right', 'bottom-left', 'bottom-center', 'bottom-right'], description: 'Anchor position for marker in relative container', example: 'anchor=top-right' },
+  { name: 'color', type: 'enum', values: ['blue', 'red', 'green', 'yellow', 'purple', 'orange'], description: 'Marker color', example: 'color=blue' },
 ];
 
 /**
