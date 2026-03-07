@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.5.0-beta.0](https://github.com/wireweave/language-data/compare/v1.4.7-beta.0...v1.5.0-beta.0) (2026-03-07)
+
+### Features
+
+* **language-data:** add comprehensive DSL definitions for editor integration ([cb23ef7](https://github.com/wireweave/language-data/commit/cb23ef7ead85188bc599ad750f064eb34ff9c860))
+
 ## [1.4.7-beta.0](https://github.com/wireweave/language-data/compare/v1.4.6...v1.4.7-beta.0) (2026-02-18)
 
 ### Documentation
