@@ -1,5 +1,7 @@
 # Changelog
 
+## [1.5.1](https://github.com/wireweave/language-data/compare/v1.5.1-beta.2...v1.5.1) (2026-03-09)
+
 ## [1.5.1-beta.2](https://github.com/wireweave/language-data/compare/v1.5.1-beta.1...v1.5.1-beta.2) (2026-03-09)
 
 ## [1.5.1-beta.1](https://github.com/wireweave/language-data/compare/v1.5.1-beta.0...v1.5.1-beta.1) (2026-03-08)
