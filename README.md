@@ -176,7 +176,7 @@ type ComponentCategory =
 
 - **[@wireweave/playground](https://github.com/wireweave/playground)** - Monaco Editor integration
 - **[wireweave-vscode](https://github.com/wireweave/vscode-extension)** - VS Code extension
-- **[mcp-dashboard](https://wireweave.org)** - CodeMirror integration
+- **[dashboard](https://wireweave.org)** - CodeMirror integration
 
 ## License
 
